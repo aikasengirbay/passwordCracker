@@ -12,7 +12,7 @@ def find_password():
     
     your_password = raw_input("Enter a password > ")
     # your_password = my_list.index(your_password)
-    test_file = open('lessthan15.txt').read()
+    test_file = open('rockyou.txt').read()
     # test_file = test_file.write()
     run_test = test_file.split("\r")
 
@@ -24,7 +24,7 @@ def find_password():
         print 
         print "Password not found"
         print
-    test_file = open('lessthan15.txt', mode = "a")
+    test_file = open('rockyou.txt', mode = "a")
     test_file.write("\r" + your_password)
     test_file.close()
   
