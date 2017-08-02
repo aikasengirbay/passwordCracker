@@ -36,73 +36,17 @@ print"""
 
 
 print
+print
 print"                                 Terminal-based Password Cracker          "
 print 
 print "                                            *** - ***                    "
 print 
-print "                          Check if your password compromised by a hackers "
-
-
-# def find_password():
-#     """Gives option to edit/delete items the list"""
-    
-#     # your_password = raw_input("Enter a password > ")
-#     your_password = getpass.getpass("Enter a password > ")
-#     your_password = str(your_password)
-#     if len(your_password) <= 5:
-#         print
-#         print "Your password can be cracked by the time you sneeze"
-#         print
-#         print  "!!! Remember, Long password = Strong password !!!"
-#         print 
-#     elif len(your_password) <= 7:
-#         print
-#         print "Your password can be cracked in the hour you get your drive-thru order"
-#         print
-#         print  "!!! Remember, Long password = Strong password !!!"
-#         print
-#     elif len(your_password) <= 9:
-#         print
-#         print "Your password can be cracked in the hour you spend doing yoga"
-#         print
-#         print  "!!! Remember, Long password = Strong password !!!"
-#         print  
-#     elif len(your_password) <= 14:
-#         print
-#         print "Your password can be cracked by your next birthday"
-#         print
-#         print  "!!! Remember, Long password = Strong password !!!"
-#         print 
-#     elif len(your_password) >= 15:
-#         print 
-#         print"*** Wowwww!!!! ****"
-#         print "Your password takes longer to crack than raising a child "
-#         print 
-#         print "!!! But I still know your password !!!"
-
-
-#     with open('rockyou.txt', 'rb') as f:
-#         m = mmap.mmap(f.fileno(), 0, prot=mmap.PROT_READ)
-        
-#         if m.find(your_password) != -1:
-#             print 
-#             print "*** {} *** Password found".format(your_password)
-#             print 
-#         else:
-#             print 
-#             print "Password not found"
-#             print
-#             print "!!! Remember, Long password = Strong password !!!"
-    
-#     test_file = open('rockyou.txt', mode = "a")
-#     test_file.write("\r" + your_password)
-#     test_file.close()
-  
+print "                          Check if your password compromised by the hackers "
 
 
 
 def display_main_menu():
-    """Displays main options, takes in user input, and calls find_password function."""
+    """Displays main options, takes in user input, and returns password from a file with message."""
    
     print
     print
@@ -110,8 +54,6 @@ def display_main_menu():
     print
     user_options = "   Would you like to test a password, Yes/No ? "
     print
-    
-
 
     while True:
         answer = raw_input(user_options)
@@ -120,17 +62,17 @@ def display_main_menu():
             print 
             print "      !!! Never Enter Your Real Password !!!"
             print 
-            # find_password()
-            # your_password = getpass.getpass("Enter a password > ")
             your_password = getpass.getpass("   Enter a password > ")
             your_password = str(your_password)
            
             with open('rockyou.txt', 'rb') as f:
                 m = mmap.mmap(f.fileno(), 0, prot=mmap.PROT_READ)
+               
                 if m.find(your_password) != -1:
                     print 
                     print "                                 *** {} *** Password found ".format(your_password)
                     print
+
                     if len(your_password) <= 0:
                         print
                         print
@@ -168,8 +110,7 @@ def display_main_menu():
                         print
                         print "                              !!! But hackers still know your password !!!"
                         print
-
-                       
+             
                 else:
                     print   "                                        Password not found!"
                     print 
@@ -217,6 +158,9 @@ def display_main_menu():
        
         elif answer == "no":
             print 
+            print
+            print
+            print
             print "                                          ***  Bye  ***"
             print 
             print "                      !!! Remember, Long password = Strong password !!!"
