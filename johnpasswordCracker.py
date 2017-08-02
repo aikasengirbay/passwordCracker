@@ -1,6 +1,4 @@
-
-
-
+import mmap
 
 print "**** ---- ****"
 print 
@@ -12,21 +10,23 @@ def find_password():
     
     your_password = raw_input("Enter a password > ")
     # your_password = my_list.index(your_password)
-    test_file = open('lessthan15.txt').read()
+    # test_file = open('lessthan15.txt').read()
     # test_file = test_file.write()
-    run_test = test_file.split("\r")
-    for i in range(100):
-        print run_test[i]
+    # run_test = test_file.split("\r")
 
-    if your_password in run_test:
-        print 
-        print "*** {} *** password found".format(your_password)
-        print 
-    elif your_password not in run_test:
-        print 
-        print "Password not found"
-        print
-    test_file = open('lessthan15.txt', mode = "a")
+    with open('master.dic', 'rb') as f:
+        m = mmap.mmap(f.fileno(), 0, prot=mmap.PROT_READ)
+    
+        if m.find(your_password) != -1:
+            print 
+            print "*** {} *** password found".format(your_password)
+            print 
+	else:
+            print 
+            print "Password not found"
+            print
+    
+    test_file = open('master.dic', mode = "a")
     test_file.write("\r" + your_password)
     test_file.close()
   
