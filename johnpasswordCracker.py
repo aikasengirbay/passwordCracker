@@ -1,4 +1,7 @@
 import mmap
+import getpass
+
+
 
 print "**** ---- ****"
 print 
@@ -8,11 +11,9 @@ print
 def find_password():
     """Gives option to edit/delete items the list"""
     
-    your_password = raw_input("Enter a password > ")
-    # your_password = my_list.index(your_password)
-    # test_file = open('lessthan15.txt').read()
-    # test_file = test_file.write()
-    # run_test = test_file.split("\r")
+    # your_password = raw_input("Enter a password > ")
+    your_password = getpass.getpass("Enter a password > ")
+
 
     with open('master.dic', 'rb') as f:
         m = mmap.mmap(f.fileno(), 0, prot=mmap.PROT_READ)
