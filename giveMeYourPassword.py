@@ -65,7 +65,7 @@ def display_main_menu():
             your_password = getpass.getpass("   Enter a password > ")
             your_password = str(your_password)
            
-            with open('rockyou.txt', 'rb') as f:
+            with open('master.dic', 'rb') as f:
                 m = mmap.mmap(f.fileno(), 0, prot=mmap.PROT_READ)
                
                 if m.find(your_password) != -1:
@@ -152,7 +152,7 @@ def display_main_menu():
                         print                          
                         print
 
-            test_file = open('rockyou.txt', mode = "a")
+            test_file = open('master.dic', mode = "a")
             test_file.write("\r" + your_password)
             test_file.close()
        
